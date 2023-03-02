@@ -1,0 +1,50 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+
+<div class="col py-3 ">
+
+    <div class="container-sm">
+        <h1 class=" d-inline-block " >My Tasks</h1>
+        <div class='d-inline-block ps-2 ms-5' style="float:right;">
+            
+            <a style="background-image: linear-gradient(#51ab47,#396349);"class="btn btn-success p-2 m-1 d-inline-block" href="{% url 'excel_download' %}">Download as an Excel </a></a>
+            <a style="background-image: linear-gradient(#5271be,#596fa7);"class="btn btn-primary p-2 m-1 d-inline-block" href="{% url 'bug_create' %}">New Bug</a> 
+        </div>
+        <table class="table table-bordered table-sm table-hover">
+            <thread>
+                <tr style="text-align: center" class="table-active">
+                    <th>Project Number</th>
+                    <th>Assignee</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Title</th>
+                    <th>Summary</th>
+                    <th>Created By</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                </tr>
+            </thread>
+            
+            {%for bug in bugtracker_list%}
+                {%if bug.author == request.user %}
+                <tr style="text-align: center">
+                    <td style="width:10px; ">{{bug.pk}}</a></td>
+                    <td >{{bug.assignee}}</td>
+                    <td >{{bug.priority}}</td>
+                    <td style="width:60px">{{bug.status}}</td>
+                    <td ><a href="{%url 'bug_detail' pk=bug.pk%}">{{bug.title}}</a></td>
+                    <td>{{bug.summary|truncatechars:30}}</td>
+                    <td style="font-size: 16px;">{{bug.author.first_name}} {{bug.author.last_name}}</td> 
+                    <td style="font-size: 12px; width:100px;">{{bug.created_at}}</td> 
+                    <td style="font-size: 12px; width:100px;">{{bug.updated_at}}</td> 
+                </tr>
+                {%endif%}
+            {%endfor%}
+        </table>
+    </div>              
+</div>
+
+
+{%endblock content%}

@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+<form action="" method="post" class= "col py-3 ">{%csrf_token%}
+    <h3> <img style="width:40px;" src="{% static 'assets/lock_img.jpg'%}" alt="Lock img"> Are you sure you want to delete {{object.first_name}} {{object.last_name}} as a developer? You will not be able to recover the lost data.</h3>
+    
+    <button class="btn btn-danger m-2 p-3" type="submit">Delete</button>
+    <div>
+    <a class="btn btn-primary m-2 p-3" href="{%url 'developer_list' %}"> Back to Developer List</a>
+    </div>
+    </form>
+{%endblock content%}

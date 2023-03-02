@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="col py-3 ">
+
+    <div class="container-sm">
+        <h1 class=" d-inline-block " >Working Tasks</h1>
+        <div class='d-inline-block ps-2 ms-5' style="float:right;">
+            <a style="background-image: linear-gradient(#51ab47,#396349);"class="btn btn-success p-2 m-2 d-inline-block" href="{% url 'excel_in_progress_download' %}">Download as an Excel</a>
+            <a style="background-image: linear-gradient(#5271be,#596fa7);"class="btn btn-primary p-2 m-2 d-inline-block" href="{% url 'bug_create' %}">New Bug</a> 
+        </div>
+        <table class="table table-bordered table-sm table-hover">
+            <thread>
+                <tr class="table-active">
+                    <th>Project Number</th>
+                    <th>Assignee</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Summary</th>
+                </tr>
+            </thread>
+            
+            {%for bug in bugtracker_list%}
+                {%if bug.status == "In Progress"%}
+                    <tr>
+                        <td><a href="{%url 'bug_detail' pk=bug.pk%}">{{bug.project_number}}</a></td>
+                        <td>{{bug.assignee}}</td>
+                        <td>{{bug.priority}}</td>
+                        <td>{{bug.status}}</td>
+                        <td>{{bug.summary|truncatechars:30}}</td>
+                    </tr>
+                {%endif%}
+            {%endfor%}
+        </table>
+    </div>              
+</div>
+
+
+{%endblock content%}

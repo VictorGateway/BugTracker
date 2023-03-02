@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        {%load static%}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>BugTracker</title>
+        <!-- Bug Image-->
+        <link rel="icon" type="image/x-icon" href= {% static "blue_bug.png" %} />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link  href={% static "css/styles.css" %} rel="stylesheet" />
+
+</head>
+<body>
+    
+    <!-- Responsive navbar-->
+    <nav  class="navbar navbar-expand-lg" style="background-image: linear-gradient( #3968a6, #5691c8);">
+            <h2 class="navbar-brand navbar-left text-light  " style="font-size: 170%;"><img style="width: 50px;" src="{% static 'blue_bug.png' %}" alt="blue bug">BugTracker</h2>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 px-5">
+                    <li class="nav-item"><a class="nav-link text-light " aria-current="page" href="{%url 'index' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-light " href="{%url 'about'%}">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-light " href="#!">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link text-light " href="{%url 'password_change'%}">Change Password</a></li>
+                    <li class="nav-item"><a class="nav-link text-light " href=" {% url 'logout' %}">Sign Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+   
+
+
+
+<div  class="container-fluid">
+    <div  class="row flex-nowrap">
+        <div class=" col-md-3 col-1 " style="overflow-y: scroll; background-image: linear-gradient(#5691c8 , #2c3e50); max-height: 100%; max-width: 250px;">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100" >
+                <a  class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-black text-decoration-none" >
+                    <h3  class="fs-5 d-none d-sm-inline text-center text-light border-bottom-5">Filters</h3>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start "  id="menu" >
+                    <li class="nav-item actice navitemactive">
+                        <a href="{%url 'index' %}" class="nav-link align-middle px-0 ">
+                            <i class="text-white fs-4 bi-house"></i> <span  class="ms-1 d-none d-sm-inline text-light hover.overlay"> <span class="hover-icon">
+                                Home</span></span>
+                        </a>
+                        <style>.nav-item { 
+                            transition: all .2s ease-in-out; 
+                            
+                            }
+                            .nav-item:hover { 
+                            transform: scale(1.1); 
+                            /* opacity: 0.7; */
+                            filter: brightness(200%);
+                            }
+
+                            
+                        </style>
+                    </li>
+                    <li class="nav-item ">
+                        <a  href="{%url 'dashboard' %}" class="nav-link px-0 align-middle ">
+                            <i class="text-color fs-5 bi-speedometer2"></i>
+                             <span  class="ms-1 d-none d-sm-inline text-color">Dashbboard</span></a>
+                        
+                    </li>
+                    <li class="nav-item">
+                        <a href="{%url 'open_projects'%}"  class="nav-link px-0 align-middle">
+                            <i class="text-color fs-5 bi-grid"></i> <span class="ms-1 d-none d-sm-inline text-color">All Open Tasks</span> </a> 
+                            
+                    </li>
+                    <li class="nav-item">
+                        <a href="{%url 'my_tasks' %}" class="nav-link px-0 align-middle">
+                            <i class="text-color fs-5 bi bi-person"></i><span class="ms-1 d-none d-sm-inline text-color">My Tasks</span> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{%url 'closed_projects'%}"  class="nav-link px-0 align-middle">
+                            <i class="text-color fs-5 bi bi-door-closed"></i><span class="ms-1 d-none d-sm-inline text-color">Closed Tasks</span> </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="{%url 'working_projects'%}" class="nav-link px-0 align-middle">
+                            <i class="text-color fs-5 bi bi-laptop"></i> <span class="ms-1 d-none d-sm-inline  text-color">Working Tasks</span> </a> 
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{%url 'updated_recently'%}" class="nav-link px-0 align-middle">
+                            <i class="text-color fs-5 bi bi-arrow-counterclockwise"></i> <span class="ms-1 d-none d-sm-inline text-color">Updated Recently</span> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{%url 'bug_list'%}"  class="nav-link px-0 align-middle">
+                            <i class="text-color bi bi-border-all "></i> <span class="ms-1 d-none d-sm-inline text-color ">All Tasks</span> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a  href="{%url 'developer_list' %}" class="nav-link px-0 align-middle ">
+                            <i class="text-color fs-5 bi-people"></i>
+                             <span  class="ms-1 d-none d-sm-inline text-color">Developers</span></a>
+                        
+                    </li>
+                    <style>
+                        .text-color{
+                            color:rgb(255, 255, 255);
+                        }
+                    </style>
+                </ul>
+
+                <hr>
+            </div>
+        </div>
+    {%block content%}
+    {%endblock content%}
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+</body>
+</html>

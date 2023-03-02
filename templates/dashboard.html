@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+{% block title %}Home {% endblock %}
+ 
+{% block content %}
+<div class="col">
+    <h1 class="text-center">BugTracker Queue</h1>
+
+    <div style="position: relative; right:-18px;" id="container" style="width: 75%;">
+        <canvas id="pie-chart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script><script>
+        var config = {
+        type: 'pie',
+        data: {
+            datasets: [{
+            data: {{data|safe}},
+            backgroundColor: ['#00008B', '#FFFF00', '#00FF00'  ],
+            label: ["Project Status"],
+            }],  
+            labels: {{labels|safe}},
+        },
+        options: {
+            responsive: true
+        }
+        };
+    
+        window.onload = function() {
+        var ctx = document.getElementById('pie-chart').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+        };
+    </script>
+  
+</div>
+{% endblock %}
