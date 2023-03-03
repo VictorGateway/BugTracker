@@ -26,12 +26,12 @@
             
             {%for bug in bugtracker_list%}
                 {%if bug.status == "Closed"%}
-                    <tr style="text-align: center">
+                    <tr style="text-align: center"> 
                         <td style="width:10px; "><a href="{%url 'bug_detail' pk=bug.pk%}">{{bug.pk}}</a></td>
                         <td >{{bug.assignee}}</td>
                         <td >{{bug.priority}}</td>
                         <td style="width:60px">{{bug.status}}</td>
-                        <td >{{bug.title}}</td>
+                        <td ><a href="{%url 'bug_detail' pk=bug.pk%}">{{bug.title}}</a></td>
                         <td>{{bug.summary|truncatechars:30}}</td>
                         <td style="font-size: 16px;">{{bug.author.first_name}} {{bug.author.last_name}}</td> 
                         <td style="font-size: 12px; width:100px;">{{bug.created_at}}</td> 

@@ -103,17 +103,26 @@ class DashboardTemplateView(TemplateView):
     template_name="dashboard.html"
     model=BugTracker
 
-    def get_context_data(self, **kwargs):
-        context=super().get_context_data()
-
+    def pie_chart_info(self):
         open_query = BugTracker.objects.filter(status="Open").count()
         closed_query = BugTracker.objects.filter(status="Closed").count()
         in_progress_query = BugTracker.objects.filter(status="In Progress").count()
 
         labels = ['Open Projects', "in Progress Projects", "Closed Projects"]
-        data=[open_query, closed_query ,in_progress_query ]
+        data=[open_query, closed_query ,in_progress_query ] 
+        return labels, data
 
-        context['labels']=labels
-        context['data']=data
+    def metrics_info(self):
+        all_created_by_me=BugTracker.objects.filter(author=self.request.user).count()
+        my_open=BugTracker.objects.filter(author=self.request.user).filter(status="Open").count()
+        my_closed=BugTracker.objects.filter(author=self.request.user).filter(status="Closed").count()
+        my_in_progress=BugTracker.objects.filter(author=self.request.user).filter(status="In Progress").count()
+        return all_created_by_me, my_open, my_closed, my_in_progress
+
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data()
+
+        context['labels'], context['data'] = self.pie_chart_info()
+        context['all_created_by_me'], context['my_open'],  context['my_closed'], context['my_in_progress']=self.metrics_info()
         return context
 

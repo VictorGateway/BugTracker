@@ -11904,3 +11904,7 @@ height: 15px;
   
 }
 
+.metric-control{
+  background-image: linear-gradient(#dddfe0,#dcdddd);
+  border-radius: 5px;
+}
