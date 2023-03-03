@@ -1,9 +1,9 @@
-{%extends 'base.html'%}
+{%extends 'form_base.html' %}
 {%load crispy_forms_tags%}
 
 {%block content%}
 <body>
-    <form action="" method="post" class="col">{%csrf_token%}
+    <form action="" method="post" class="col m-3">{%csrf_token%}
         {{form|crispy}}
     <button style="background-image: linear-gradient(#51ab47,#396349);" class="btn btn-success" type="submit">Update</button>
     </form>
