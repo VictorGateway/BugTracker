@@ -11,27 +11,26 @@
             <a style="background-image: linear-gradient(#5271be,#596fa7);"class="btn btn-primary p-2 m-2 " href="{%url 'developer_create'%}">Add Developer</a>
         </div>
                 <table class="table table-grey table-hover table-condensed table-hover">
-                    <tr class="table-active">
-                        <th style="width: 100px">First Name</th>
-                        <th >Last Name</th>
-                        <th >Email</th>
-                        <th style="width: 30px">Update</th>
-                        <th style="width: 30px">Delete</th>
+                    <tr class="table-active text-center">
+                        <th class="col-md">First Name</th>
+                        <th class="col-md">Last Name</th>
+                        <th class="col-md-4">Email</th>
+                        <th class="col-md">Update</th>
+                        <th class="col-md">Delete</th>
 
                     </tr>
                     {%for developer in developer_list%}
-                        <tr>
+                        <tr class="text-center">
                             <td>{{developer.first_name}}</td>
                             <td>{{developer.last_name}}</td> 
                             <td>{{developer.email}}</td> 
-                            <td><a href="{%url 'developer_update' developer.pk %}">Update Developer</a></td>
-                            <td><a href="{%url 'developer_delete' developer.pk %}">Delete Developer</a></td> 
+                            <td class="button-control-1"><a href="{%url 'developer_update' developer.pk %}">Update Developer</a></td>
+                            <td class="button-control-2"><a  href="{%url 'developer_delete' developer.pk %}">Remove Developer</a></td> 
                         </tr>
                     
                     {%endfor%}
                     
-                    
-                    
+                   
                 </table>
                 
                 

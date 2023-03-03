@@ -13,10 +13,10 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src= {% static "bugimg-highres.jpeg" %} alt="sing in image"></figure>
+                        <figure><img class="loginimg" src= {% static 'assets/bugimg-highres.jpeg' %} alt="sing in image"></figure>
                         <a href="{%url 'signup'%}" class="signup-image-link">Create an account</a>
+                        <a class="guest-button" href="{%url 'guest_login'%}">Log in as guest</a>
                     </div>
-
                     <div class="signin-form">
                         <h3>You're not logged in {{user}}</h3>
                         <h2 class="form-title">Login</h2>
@@ -27,20 +27,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <!-- <input type="password" name="your_pass" id="your_pass" placeholder="Password"/> -->
                                 <p>Password: </p> {{form.password}}
                             </div>
-                            <style>
-                                .emailfield { border-style: none; border-bottom: solid; border-width: thin; padding: 5px; width: 250px; font-family: Arial, Helvetica, sans-serif;}
-                                .passwordfield { border-style: none; border-bottom: solid; border-width: thin; padding: 5px; width: 250px; font-family: Arial, Helvetica, sans-serif;}
-                            </style>
                           
-                        
-                        
-                        <a href="{%url 'password_reset'%}">Forgot your password?</a>
-                        <a href="{%url 'guest_login'%}">Log in as guest</a>
+                        <a class="forgot-button" href="{%url 'password_reset'%}">Forgot your password?</a>
                         <div class="form-group form-button">
-                            <input style= "border: none; background-image: linear-gradient(#5691c8 , #2c3e50);" type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                            <input  type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
                         </div>
                         </form>
                         
@@ -58,96 +50,13 @@
                               </div>
                           </form>    
                         </div>
-                        <div class="fb-login-button" data-width="" data-size="" data-button-type="" data-layout="" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                        <!-- <div class="fb-login-button" data-width="" data-size="" data-button-type="" data-layout="" data-auto-logout-link="false" data-use-continue-as="false"></div>
 
                         <div  class="googlecontainer">
                           <form action="{% provider_login_url 'facebook' method='oauth2' %}" method="post">{% csrf_token %}
                               
-                          </form>  
+                          </form>   -->
                         </div>
-
-                        <style>
-
-                            .button-text {
-                              background-color: #4285f4;
-                              color: white;
-                              height: 44px;
-                              border: none;
-
-                            }
-                            .button-text:hover {
-                              cursor: pointer;
-                            }
-                            .googlecontainer{
-                                position: relative;
-                                top: 10px;
-                                right: 10px;
-                            }
-                            .g-sign-in-button {
-                            
-                            margin: 10px;
-                            display: inline-block;
-                            width: 180px;
-                            height: auto;
-                            background-color: #4285f4;
-                            color: #fff;
-                            border-radius: 4px;
-                            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
-                            transition: background-color .218s, border-color .218s, box-shadow .218s;
-                            }
-
-                            .g-sign-in-button:hover {
-                            cursor: pointer;
-                            -webkit-box-shadow: 0 0 3px 3px rgba(66, 133, 244, .3);
-                            box-shadow: 0 0 3px 3px rgba(66, 133, 244, .3);
-                            }
-
-                            .g-sign-in-button:active {
-                            background-color: #3367D6;
-                            transition: background-color .2s;
-                            }
-
-                            .g-sign-in-button .content-wrapper {
-                            height: 100%;
-                            width: 100%;
-                            border: 1px solid transparent;
-                            }
-
-                            .g-sign-in-button img {
-                            width: 15px;
-                            height: 15px;
-                            }
-
-                            .g-sign-in-button .logo-wrapper {
-                            padding: 11px;
-                            background: #fff;
-                            width: 14px;
-                            height: 100%;
-                            border-radius: 4px;
-                            border-color: #3367D6;
-                            display: inline-block;
-                            }
-
-                            .g-sign-in-button .text-container {
-                            font-family: "Roboto", arial, sans-serif;
-                            font-weight: 500;
-                            letter-spacing: .21px;
-                            font-size: 13px;
-                            line-height: 40px;
-                            vertical-align: top;
-                            border: none;
-                            text-align: center;
-                            width: 135px;
-                            margin-left: 7px;
-                            }
-                        </style>
-                         <!-- <div class="social-login">
-                            <span class="social-label">Or login with</span>
-                            <ul class="socials">
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                                <li><a href="{% provider_login_url 'google' %}?next=/"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                            </ul>
-                        </div>  -->
                     </div>
                 </div>
             </div>
@@ -157,8 +66,7 @@
 
 
     <!-- JS -->
-    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+   
     <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v16.0&appId=496531955999839&autoLogAppEvents=1" nonce="s5LVexVq"></script>
 {% endblock content %}

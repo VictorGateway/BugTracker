@@ -51,14 +51,7 @@
                         <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                         <p>Position: </p>{{form.position}}
                     </div>
-                    <style>.emailfield { border-style: none; border-bottom: solid; border-width: thin; padding: 5px; width: 250px; font-family: Arial, Helvetica, sans-serif;}
-                    .passwordfield { border-style: none; border-bottom: solid; border-width: thin; padding: 5px;}
-                        /* .firstnamefield { border-style: none; border-bottom: solid; border-width: thin; padding: 5px; width: 250px;}
-                        .lastnamefield { border-style: none; border-bottom: solid; border-width: thin; padding: 5px; width: 250px;}
-                        .password1field { border-style: none; border-bottom: solid; border-width: thin; padding: 5px;}
-                        .password2field { border-style: none; border-bottom: solid; border-width: thin; padding: 5px;}
-                        .companyfield { border-style: none; border-bottom: solid; border-width: thin; padding: 5px; width: 250px;} */
-                    </style>
+                   
                     
                     <div  class="form-group form-button ">
                         <button style= "border: none; background-image: linear-gradient(#5691c8 , #2c3e50);" type="submit" class="form-submit" value="Register"> Sign Up</button>
@@ -66,14 +59,12 @@
                 </form>
             </div>
             <div class="signup-image">
-                <figure><img style="width:300px;" src={% static "bugimg-highres.jpeg" %} alt="sign up image"></figure>
-                <a href="{% url 'login' %}" class="signup-image-link">I am already member</a>
+                <figure><img class="loginimg" style="width:300px;" src="{% static 'assets/bugimg-highres.jpeg' %}" alt="sign up image"></figure>
+                <a href="{% url 'login' %}" class="signup-image-link">I am already member</a> 
             </div>
         </div>
     </div>
 </section>
 
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="{% static js/main.js}"></script>
 {%endblock content%}
 
