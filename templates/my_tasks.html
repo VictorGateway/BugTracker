@@ -32,7 +32,7 @@
                 <tr style="text-align: center">
                     <td style="width:10px; ">{{bug.pk}}</a></td>
                     <td >{{bug.assignee}}</td>
-                    <td >{{bug.priority}}</td>
+                    <td class=" {% if bug.priority == 'high'%} text-danger {% endif %}">{{bug.priority}}</td>
                     <td style="width:60px">{{bug.status}}</td>
                     <td ><a href="{%url 'bug_detail' pk=bug.pk%}">{{bug.title}}</a></td>
                     <td>{{bug.summary|truncatechars:30}}</td>

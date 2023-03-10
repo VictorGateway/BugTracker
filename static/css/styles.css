@@ -11908,3 +11908,8 @@ height: 15px;
   background-image: linear-gradient(#dddfe0,#dcdddd);
   border-radius: 5px;
 }
+
+.table-filter-control{
+  font-family: arial;
+  font-size: 15px;
+}

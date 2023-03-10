@@ -3,11 +3,20 @@
 {%block content%}
 <form action="" method="post" class= "col py-3 ">{%csrf_token%}
     <h3 class="">Are you sure you want to delete this bug task? You will not be able to recover it.</h3>
-<button class="btn btn-danger m-2 p-3" type="submit">Delete</button>
+<button class="btn btn-danger m-2 p-3 delete-button" type="submit">Delete</button>
 <div>
-<a class="btn btn-primary m-2 p-3" href="{%url 'bug_detail' pk=object.pk %}"> Back to Project</a>
+<a class="btn btn-primary m-2 p-3 back-button" href="{%url 'bug_detail' pk=object.pk %}"> Back to Project</a>
 </div>
 </form>
-
+<style>
+    .delete-button{
+        background-image: linear-gradient(#b35a46,#673324);
+    
+    }
+    .back-button{
+        background-image: linear-gradient(#51ab47,#396349);
+        
+    }
+</style>
 
 {%endblock content%}
