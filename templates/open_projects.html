@@ -9,9 +9,9 @@
             <a style="background-image: linear-gradient(#51ab47,#396349);"class="btn btn-success p-2 m-2 d-inline-block text-light" href="{% url 'excel_open_download' %}">Download as an Excel</a>
             <a style="background-image: linear-gradient(#5271be,#596fa7);"class="btn p-2 m-2 d-inline-block text-light" class="btn btn-primary p-2 m-2 d-inline-block" href="{% url 'bug_create' %}">New Bug</a> 
         </div>
-        <table class="table table-bordered table-sm table-hover table-filter-control">
+        <table class="table table-bordered table-sm table-hover ">
             <thread>
-                <tr style="text-align: center" class="table-active ">
+                <tr style="text-align: center" class="table-active table-filter-control">
                     <th>Project Number</th>
                     <th>Assignee</th>
                     <th>Priority</th>
@@ -31,9 +31,9 @@
                         <td class=" {% if bug.priority == 'high'%} text-danger {% endif %}">{{bug.priority}}</td>
                         <td >{{bug.status}}</td>
                         <td > <a href="{%url 'bug_detail' pk=bug.pk%}">{{bug.title}}</a></td>
-                        <td style="font-size: 16px;">{{bug.author.first_name}} {{bug.author.last_name}}</td> 
-                        <td style="font-size: 12px; width:100px;">{{bug.created_at}}</td> 
-                        <td style="font-size: 12px; width:100px;">{{bug.updated_at}}</td> 
+                        <td >{{bug.author.first_name}} {{bug.author.last_name}}</td> 
+                        <td >{{bug.created_at}}</td> 
+                        <td >{{bug.updated_at}}</td> 
                     </tr>
                    <style>
                     

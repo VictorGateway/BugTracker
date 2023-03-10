@@ -25,7 +25,7 @@
             
             {%for bug in bugtracker_list%}
                 {%if bug.status == "In Progress"%}
-                    <tr>
+                    <tr class="text-center"> 
                         <td class="project-control">{{bug.project_number}}</a></td>
                         <td>{{bug.assignee}}</td>
                         <td class=" {% if bug.priority == 'high'%} text-danger {% endif %}">{{bug.priority}}</td>

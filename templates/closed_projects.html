@@ -4,14 +4,14 @@
 <div class="col py-3 ">
 
     <div class="container-sm">
-        <h1 class=" d-inline-block " >All Open Tasks</h1>
+        <h1 class=" d-inline-block " >All Closed Tasks</h1>
         <div class='d-inline-block ps-2 ms-5' style="float:right;">
             <a style="background-image: linear-gradient(#51ab47,#396349);"class="btn btn-success p-2 m-2 d-inline-block" href="{% url 'excel_closed_download' %}">Download as an Excel</a>
             <a style="background-image: linear-gradient(#5271be,#596fa7);"class="btn btn-primary p-2 m-2 d-inline-block" href="{% url 'bug_create' %}">New Bug</a> 
         </div>
-        <table class="table table-bordered table-sm table-hover table-filter-control">
+        <table class="table table-bordered table-sm table-hover table-filter-control ">
             <thread>
-                <tr style="text-align: center" class="table-active">
+                <tr class="table-active text-center">
                     <th>Project Number</th>
                     <th>Assignee</th>
                     <th>Priority</th>

@@ -14,7 +14,7 @@
         </div>
         <table class="table table-bordered table-sm table-hover table-filter-control">
             <thread>
-                <tr class="table-active ">
+                <tr class="table-active text-center">
                     <th>Project Number</th>
                     <th>Assignee</th>
                     <th>Priority</th>
@@ -27,7 +27,7 @@
             </thread>
             
             {%for bug in bugtracker_list%}
-                    <tr>
+                    <tr class="text-center">
                         <td>{{bug.pk}}</td>
                         <td>{{bug.assignee}}</td>
                         <td class=" {% if bug.priority == 'high'%} text-danger {% endif %}">{{bug.priority}}</td>
