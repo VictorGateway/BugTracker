@@ -23,7 +23,6 @@ class Developer(models.Model):
 
 class BugTracker(models.Model):
     project_number= models.AutoField(primary_key=True)
-    id = models.IntegerField(primary_key=True) 
     assignee=  models.ForeignKey(Developer, on_delete=models.CASCADE, null=True)
     priority = models.CharField(max_length=10, choices=priority_choices)
     title = models.CharField(max_length=70)
