@@ -3,12 +3,12 @@
 {% block title %}Home {% endblock %}
  
 {% block content %}
-<div class="col-md-5 m-5 shadow">
-    <h1 class="text-center">BugTracker Queue</h1>
+<div class="col-md-6 m-5 shadow ">
+    <div><h1 class="text-center mb-5">BugTracker Queue</h1></div>
 
-    <div  id="container" >
+    <div  >
         <canvas id="pie-chart"></canvas>
-    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script><script>
         var config = {
         type: 'pie',
@@ -30,17 +30,19 @@
         window.myPie = new Chart(ctx, config);
         };
     </script>
-    
+    </div>
 </div>
-<div class="col-md-3 mt-5 fs-5 shadow ">
+<div class="col-md-3 mt-5 fs-6 shadow ">
     <h1> My Metrics</h1>
     <div class="fw-bold metric-control">Number of Tasks Created by Me:</div>  {{all_created_by_me}}
     <div class="fw-bold metric-control">Number Open Tasks: </div> {{my_open}}
     <div class="fw-bold metric-control">Number Closed Tasks: </div> {{my_closed}}
     <div class="fw-bold metric-control">Number In Progress Tasks: </div> {{my_in_progress}}
 </div>
-
 <style>
-    
+    .pie-chart{
+        display: block;
+        width: 400px;
+    }
 </style>
 {% endblock %}
