@@ -219,7 +219,7 @@ ACCOUNT_FORMS = {'signup': 'accounts.forms.CustomCreationForm'}
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey' #keep this as it is
-EMAIL_HOST_PASSWORD = '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'
+EMAIL_HOST_PASSWORD = env.str("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
