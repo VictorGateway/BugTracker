@@ -196,7 +196,7 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 
-# ACCOUNT_DEFAULT_HTTP_PROTOCOL="https"
+ACCOUNT_DEFAULT_HTTP_PROTOCOL="https"
 
 
 DEFAULT_HTTP_PROTOCOL = "https"
@@ -218,7 +218,7 @@ ACCOUNT_FORMS = {'signup': 'accounts.forms.CustomCreationForm'}
 
 
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'apikey' #keep this as it is
+EMAIL_HOST_USER = 'apikey' 
 EMAIL_HOST_PASSWORD = env.str("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
