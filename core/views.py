@@ -1,7 +1,8 @@
 from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView, DetailView
 from .models import BugTracker, Developer
 from django.urls import reverse_lazy
-
+from django.shortcuts import render
+from django.http import request
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
@@ -42,6 +43,10 @@ class BugUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def test_func(self):
         obj=self.get_object()
         return obj.author==self.request.user
+    
+    def handle_no_permission(self):
+        return render(self.request, '403error.html')
+
 
 class BugDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     template_name="bug_delete.html"
@@ -52,6 +57,8 @@ class BugDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         obj=self.get_object()
         return obj.author==self.request.user
 
+    def handle_no_permission(self):
+        return render(self.request, '403error.html')
 #OpenProjectsTasks
 class OpenBugListView(BugListView):
     template_name='open_projects.html'

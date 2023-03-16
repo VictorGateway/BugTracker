@@ -41,7 +41,7 @@
                 <a  class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-black text-decoration-none" >
                     <h2  class="fs-5 d-none d-sm-inline text-center text-light fw-bold filtercontrol ">Filters</h2>
                 </a>
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start "  id="menu" >
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start filternavbar"  id="menu" >
                     <li class="nav-item actice navitemactive">
                         <a href="{%url 'index' %}" class="nav-link align-middle px-0 hover-control ">
                             <i class="text-white fs-4 bi-house"></i> <span  class="ms-1 d-none d-sm-inline text-light hover.overlay"> <span class="hover-icon ">
@@ -87,36 +87,7 @@
                              <span  class="ms-1 d-none d-sm-inline text-color ">Developers</span></a>
                         
                     </li>
-                    <style>
-                        .text-color{
-                            color:rgb(255, 255, 255);
-                        }
-
-                        .left-menu-control{
-                            font-size: 90%;
-                        }
-                        .hover-control{
-                            font-size: 90%;
-                        }
-                        .hover-control:hover{
-                            transform: scale(1.1);
-                            transition: .3s;
-                        }
-
-                        @media(max-width: 700px){
-                            .navbar-control-android{
-                                width: 170%
-                        }
-                        }
-
-                        .navbar-styles{
-                            width: 17%; 
-                            overflow-y: auto; 
-                            background-image: linear-gradient(#5691c8 , #2c3e50); max-height: 100%; 
-                            font-size: 14px; 
-                           
-                        }
-                    </style>
+                    
                 </ul>
 
                 <hr>
