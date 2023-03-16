@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.translation import gettext_lazy as _
 
 class UserManager(BaseUserManager):
-    """Define a model manager for User model with no username field."""
+    """Defines a model manager for User model with no username field."""
 
     use_in_migrations = True
 
@@ -37,6 +37,7 @@ class UserManager(BaseUserManager):
 
 
 class CustomUser(AbstractUser):
+    "Removes the use of a username email and replaces it with an email field."
     company=models.CharField(max_length=100, blank=True, null=True)
     position=models.CharField(max_length=40, blank=True, null=True)
     email=models.EmailField(_('email address'), unique=True)

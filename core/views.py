@@ -36,6 +36,7 @@ class BugCreateView(LoginRequiredMixin, CreateView):
          return super().form_valid(form)
 
 class BugUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    "Permission settings so that only the author can edit or delete the respective detail view."
     template_name="bug_update.html"
     model=BugTracker
     fields= ("title","assignee","priority", "summary", "status" )
@@ -49,6 +50,7 @@ class BugUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 
 class BugDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    "Permission settings so that only the author can edit or delete the respective detail view."
     template_name="bug_delete.html"
     model=BugTracker
     success_url=reverse_lazy("bug_list")
@@ -107,6 +109,7 @@ class DeveloperDeleteView(DeleteView):
     success_url=reverse_lazy("developer_list")   
 
 class DashboardTemplateView(TemplateView):
+    "Main dashboard view function. Divided into three functions. One for the pie chart, one for the metrics of the bugs and another to pass the info into the context variable"
     template_name="dashboard.html"
     model=BugTracker
 
